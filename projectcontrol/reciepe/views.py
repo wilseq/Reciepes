@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import Vegetable
-from .forms import RawVegetableForm
+from .forms import RawVegetableForm, RawIngredientForm, RawGroceriesForm
 # Create your views here.
 def index(request):
 
@@ -33,17 +33,34 @@ def vendor(request):
     return render(request,'reciepe/vendor.html', {})
 
 def vegetable(request):
-    my_form = RawVegetableForm()
+    my_form = RawVegetableForm(request.POST or None)
+    if my_form.is_valid():
+        my_form.save()
+        my_form = RawVegetableForm()
     context = {
         "form": my_form
     }
     return render(request,'reciepe/vegetable.html', context)
 
 def ingredients(request):
-    return render(request,'reciepe/ingredients.html', {})
+    ingredients_form = RawIngredientForm(request.POST or None)
+    if ingredients_form.is_valid():
+        ingredients_form.save()
+        ingredients_form = RawIngredientForm()
+    context = {
+        "form": ingredients_form
+    }
+    return render(request,'reciepe/ingredients.html', context)
 
-def groceries(request):
-    return render(request,'reciepe/groceries.html', {})
+def  groceries(request):
+    my_form = RawGroceriesForm(request.POST or None)
+    if my_form.is_valid():
+        my_form.save()
+        my_form = RawGroceriesForm()
+    context = {
+        "form": my_form
+    }
+    return render(request,'reciepe/groceries.html', context)
 
 def menu(request):
     return render(request,'reciepe/menu.html', {})

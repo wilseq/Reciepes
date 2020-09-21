@@ -1,12 +1,21 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1 class="title">
-    Vendor
+<h1 class="title">Vendor</h1>
 
-</h1>
+
+
+
 {% endblock %}
 
 {% block list_block %}
+<h1 class="title">Vendor</h1>
+    <ul>
+        {% for items in Vegetable.objects.all %}
+        <li>{{ items }}</li>
+        {% endfor %}
+
+    </ul>
+
 
     {% endblock list_block %}

@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'reciepe',
+    'acount',
+
 ]
 
 MIDDLEWARE = [
@@ -67,6 +69,8 @@ TEMPLATES = [
         },
     },
 ]
+
+AUTH_USER_MODEL = 'acount.Account' #overwrites the default behaviour system in django.it tell django where this custom model is
 
 WSGI_APPLICATION = 'projectcontrol.wsgi.application'
 
