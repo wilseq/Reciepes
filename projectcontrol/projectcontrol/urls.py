@@ -21,5 +21,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('reciepe.urls')),
     path('',include('acount.urls')),
+    path('',include('organization.urls')),
     #path('register/',registration_view, name= 'register'),
 ]

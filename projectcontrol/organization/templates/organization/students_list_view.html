@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student List View</title>
+</head>
+<body>
+{% block list_block %}
+    <h1>Student Form</h1>
+    {{ object_list }}
+  {% for instance in object_list %}
+    <p>{{ instance.f_name }} - {{ instance.l_name }}</p>
+  {% endfor %}
+{% endblock list_block %}
+</body>
+</html>
